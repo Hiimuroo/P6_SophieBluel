@@ -467,3 +467,6 @@ hr {
 	left: 10px;
 	z-index: 2;
   }
+  .hidden {
+	display: none;
+  }

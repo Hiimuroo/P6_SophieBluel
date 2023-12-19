@@ -150,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
 function logout() {
   localStorage.removeItem('token');
 
@@ -284,42 +283,41 @@ function ajouterPhoto(photoFile) {
     .catch(error => console.error('Erreur réseau :', error));
 }
 
-function chargerPageAjoutPhoto() {
-  const modalHeader = document.querySelector('.modal-header');
-  modalHeader.innerHTML = '';
-
-  const ajoutPhotoContent = `
-  <div class="arrow-container" onclick="retourGalerie()">
-    <i class="fa-solid fa-arrow-left"></i>
-  </div>
-  <h2>Ajout photo</h2>
-  <div class="contents">
-    <form id="ajoutPhotoForm">
-      <div class="photo-container">
-        <i class="fa-regular fa-image"></i>
-        <input type="file" accept=".jpg, .jpeg, .png" id="photoInput" style="display: none;" onchange="handleFileSelect(event)">
-        <label for="photoInput" class="photo-button">+ Ajouter photo</label>
-        <p>jpg, png : 4mo max</p>
-      </div>
-    </form>
-    <h3>Titre</h3>
-    <input type="text" id="titleInput" required>
-    <h3>Catégorie</h3>
-    <div class="form-group">
-      <select id="categorySelect" class="form-control" required>
-        <option value="" selected disabled></option>
-        <option value="1">Objets</option>
-        <option value="2">Appartements</option>
-        <option value="3">Hotels & restaurants</option>
-      </select>
-    </div>
-    <hr>
-  </div>
-`;
-  modalHeader.insertAdjacentHTML('beforeend', ajoutPhotoContent);
-}
-
 function getTitreProjet() {
   const titreInput = document.getElementById('titleInput');
   return titreInput.value;
+}
+
+function afficherAjoutPhoto() {
+  const modalModifier = document.getElementById('modalModifier');
+  const modalAjoutPhoto = document.getElementById('modalAjoutPhoto');
+
+  modalModifier.style.display = 'none';
+  modalAjoutPhoto.style.display = 'block';
+}
+
+function fermerAjoutPhoto() {
+  const modalModifier = document.getElementById('modalModifier');
+  const modalAjoutPhoto = document.getElementById('modalAjoutPhoto');
+
+  modalAjoutPhoto.style.display = 'none';
+  modalPrincipal.style.display = 'block';
+}
+
+function retourGalerie() {
+  const modalAjoutPhoto = document.getElementById('modalAjoutPhoto');
+  const modalModifier = document.getElementById('modalModifier');
+
+  modalAjoutPhoto.style.display = 'none';
+  modalModifier.style.display = 'block';
+}
+
+function fermerModalPrincipal() {
+  const modalModifier = document.getElementById('modalModifier');
+  modalModifier.style.display = 'none';
+}
+
+function modalAjoutPhoto() {
+  const modalAjoutPhoto = document.getElementById('modalAjoutPhoto');
+  modalAjoutPhoto.style.display = 'none';
 }
