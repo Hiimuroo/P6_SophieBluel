@@ -282,7 +282,7 @@ function handleFileSelect(event) {
         reader.onload = function (e) {
             imagePreview.src = e.target.result;
             imagePreview.style.display = 'block'; // Afficher l'aperçu
-            photoContainer.style.display = 'none'; // Masquer le reste de la photo-container
+            photoContainer.style.display = 'none'; // Masquer le reste de photo-container
         };
 
         reader.readAsDataURL(fileInput.files[0]);
