@@ -444,7 +444,7 @@ hr {
 	line-height: normal;
 	margin-bottom: 10px;
 }
-#titleInput {
+#title {
 	width: 420px;
 	height: 40px;
 	background: #FFF;
@@ -454,7 +454,7 @@ hr {
 #ajoutPhotoForm {
 	margin-bottom: 30px;
 }
-#categorySelect {
+#category {
 	width: 441px;
 	height: 55px;
 	background: #FFF;

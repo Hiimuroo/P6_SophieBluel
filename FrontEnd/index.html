@@ -25,6 +25,8 @@
 		</ul>
 	</nav>
 </header>
+
+
 <main>
 	<section id="introduction">
 		<figure>
@@ -38,6 +40,8 @@
 		</article>
 	</section>
 
+
+
 	<section id="portfolio">
 		<div class="portfolio-header">
 		  <h2>Mes Projets</h2>
@@ -46,6 +50,9 @@
 		  </button>
 		</div>
 	  
+
+
+
 		<div id="modalModifier" class="modal">
 			<div class="modal-content">
 			  <span class="close" onclick="fermerModalPrincipal()">&times;</span>
@@ -53,11 +60,11 @@
 				<h2>Galerie photo</h2>
 				<div id="galleryContainer" class="gallery-container">
 				  <div class="modal-gallery-item">
-					<span class="delete-icon" onclick="supprimerImage(1)">
-					  <i class="fas fa-trash"></i>
-					</span>
-					<img src="path/to/image.jpg" alt="Description de l'image">
-				  </div>
+					<span class="delete-icon" onclick="supprimerImage(1, this)">
+						<i class="fas fa-trash"></i>
+					  </span>
+					  <img src="Backend/images/image.jpg" alt="Description de l'image">
+					</div>
 				</div>
 				<hr>
 				<button id="chargerPageAjoutPhoto" class="login-button" onclick="afficherAjoutPhoto()">Ajouter une photo</button>
@@ -65,6 +72,7 @@
 			</div>
 		  </div>
 		  
+
 
 		  <div id="modalAjoutPhoto" class="modal hidden">
 			<div class="modal-content">
@@ -75,19 +83,20 @@
 				</div>
 				<h2>Ajout photo</h2>
 				<div class="contents">
-				  <form id="ajoutPhotoForm">
-					<div class="photo-container">
-						<i class="fa-regular fa-image"></i>
-						<input type="file" accept=".jpg, .jpeg, .png" id="photoInput" style="display: none;" onchange="handleFileSelect(event)">
-						<label for="photoInput" class="photo-button">+ Ajouter photo</label>
-						<p>jpg, png : 4mo max</p>
-					  </div>
-				  </form>
+					<form id="ajoutPhotoForm">
+						<div class="photo-container">
+							<i class="fa-regular fa-image"></i>
+							<input type="file" accept=".jpg, .jpeg, .png" id="photoInput" style="display: none;" onchange="handleFileSelect(event)">
+							<label for="photoInput" class="photo-button">+ Ajouter photo</label>
+							<p>jpg, png : 4mo max</p>
+							<img id="imagePreview" style="display: none; max-width: 100%; max-height: 100%;" alt="Aperçu de l'image" />
+						</div>
+					</form>
 				  <h3>Titre</h3>
-				  <input type="text" id="titleInput" required>
+				  <input type="text" id="title" required>
 				  <h3>Catégorie</h3>
 				  <div class="form-group">
-					<select id="categorySelect" class="form-control" required>
+					<select id="category" class="form-control" required>
 					  <option value="" selected disabled></option>
 					  <option value="1">Objets</option>
 					  <option value="2">Appartements</option>
@@ -95,11 +104,13 @@
 					</select>
 				  </div>
 				  <hr>
+				  <button id="validerButton" class="login-button" onclick="AjouterImages()">Valider</button>
 				</div>
 				</div>
 			  </div>
 			</div>
 		
+
 
 
 		<div id="buttonsContainer">
@@ -108,10 +119,15 @@
 			<button id="btnAppartements" onclick="changeButtonState(this)"><span class="h2">Appartements</span></button>
 			<button id="btnHotelsrestaurants" onclick="changeButtonState(this)"><span class="h2">Hôtels & restaurants</span></button>
 		  </div>
-				
+
+
+
 		<div id="galeries">
 		</div>
 	</section>
+
+
+
 
 	<section id="contact">
 		<h2>Contact</h2>

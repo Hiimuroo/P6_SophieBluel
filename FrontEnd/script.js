@@ -246,12 +246,19 @@ document.addEventListener('DOMContentLoaded', () => {
   chargerPhotos();
 });
 
+
 function supprimerImage(imageId, galleryItem) {
   const confirmation = confirm('Voulez-vous vraiment supprimer cette image ?');
 
   if (confirmation) {
+    const token = localStorage.getItem('token');
+
     fetch(`http://localhost:5678/api/works/${imageId}`, {
       method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
     })
       .then(response => {
         if (response.ok) {
@@ -264,13 +271,44 @@ function supprimerImage(imageId, galleryItem) {
   }
 }
 
-function ajouterPhoto(photoFile) {
+function handleFileSelect(event) {
+    const fileInput = event.target;
+    const imagePreview = document.getElementById('imagePreview');
+    const photoContainer = document.querySelector('.photo-container');
+
+    if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+            imagePreview.style.display = 'block'; // Afficher l'aperçu
+            photoContainer.style.display = 'none'; // Masquer le reste de la photo-container
+        };
+
+        reader.readAsDataURL(fileInput.files[0]);
+    }
+}
+
+
+
+function AjouterImages() {
   const formData = new FormData();
-  formData.append('photo', photoFile);
+  const photoInput = document.getElementById('photoInput'); 
+  const titleInput = document.getElementById('title'); 
+  const categorySelect = document.getElementById('category'); 
+
+  formData.append('image', photoInput.files[0]);
+  formData.append('title', titleInput.value);
+  formData.append('category', categorySelect.value);
+
+  const token = localStorage.getItem('token');
 
   fetch('http://localhost:5678/api/works', {
     method: 'POST',
     body: formData,
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
   })
     .then(response => {
       if (response.ok) {
@@ -283,9 +321,11 @@ function ajouterPhoto(photoFile) {
     .catch(error => console.error('Erreur réseau :', error));
 }
 
+
+
 function getTitreProjet() {
   const titreInput = document.getElementById('titleInput');
-  return titreInput.value;
+  return titreInput;
 }
 
 function afficherAjoutPhoto() {
@@ -301,7 +341,7 @@ function fermerAjoutPhoto() {
   const modalAjoutPhoto = document.getElementById('modalAjoutPhoto');
 
   modalAjoutPhoto.style.display = 'none';
-  modalPrincipal.style.display = 'block';
+  modalModifier.style.display = 'block';
 }
 
 function retourGalerie() {
