@@ -274,15 +274,15 @@ function supprimerImage(imageId, galleryItem) {
 function handleFileSelect(event) {
     const fileInput = event.target;
     const imagePreview = document.getElementById('imagePreview');
-    const photoContainer = document.querySelector('.photo-container');
+    const Hide = document.querySelector('.Hide');
 
     if (fileInput.files && fileInput.files[0]) {
         const reader = new FileReader();
 
         reader.onload = function (e) {
             imagePreview.src = e.target.result;
-            imagePreview.style.display = 'block'; // Afficher l'aperçu
-            photoContainer.style.display = 'none'; // Masquer le reste de photo-container
+            imagePreview.style.display = 'block'; 
+            Hide.style.display = 'none'; 
         };
 
         reader.readAsDataURL(fileInput.files[0]);
@@ -377,3 +377,5 @@ document.addEventListener("DOMContentLoaded", function() {
       editModeBanner.style.display = 'none';
     }
   });
+
+  

@@ -88,11 +88,14 @@
 				<div class="contents">
 					<form id="ajoutPhotoForm">
 						<div class="photo-container">
+							<div class="Hide">
 							<i class="fa-regular fa-image"></i>
 							<input type="file" accept=".jpg, .jpeg, .png" id="photoInput" style="display: none;" onchange="handleFileSelect(event)">
 							<label for="photoInput" class="photo-button">+ Ajouter photo</label>
 							<p>jpg, png : 4mo max</p>
-							<img id="imagePreview" style="display: none; max-width: 100%; max-height: 100%;" alt="Aperçu de l'image" />
+						</div>
+							<img id="imagePreview" style="display: none; max-width: 192px; max-height: 189px;" alt="Aperçu de l'image" />
+							
 						</div>
 					</form>
 				  <h3>Titre</h3>
