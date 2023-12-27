@@ -61,7 +61,7 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 70px 0
 }
 section {
 	margin: 100px 0
@@ -204,12 +204,14 @@ input[type="submit"]{
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin-top: 2em;
-	height: 100px;
+	height: 40px;
+	padding: 15px;
 }
 footer {
 	background: White;
 	width: 100%;
+	position: absolute;
+	left: 0;
 }
 #loginForm {
     display: flex;
@@ -480,13 +482,19 @@ hr {
     margin: 0 auto;
   }
   #editModeBanner {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
 	background-color:black;
-	padding: 10px;
 	text-align: center;
 	font-size: 16px;
 	font-weight: 400;
 	color: white;
 	font-family: Work Sans;
+	padding : 18px;
   }
   .edit-mode {
 	display: block;
@@ -498,7 +506,4 @@ hr {
   #forget {
     display: block;
     margin: 8px auto;
-  }
-  #edit {
-	margin: 5px;
   }
