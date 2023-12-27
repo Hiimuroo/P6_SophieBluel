@@ -479,3 +479,26 @@ hr {
     display: block;
     margin: 0 auto;
   }
+  #editModeBanner {
+	background-color:black;
+	padding: 10px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 400;
+	color: white;
+	font-family: Work Sans;
+  }
+  .edit-mode {
+	display: block;
+  }
+  #loginBtn {
+    display: block;
+    margin: 0 auto;
+  }
+  #forget {
+    display: block;
+    margin: 8px auto;
+  }
+  #edit {
+	margin: 5px;
+  }

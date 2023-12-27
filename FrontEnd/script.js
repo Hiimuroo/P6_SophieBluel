@@ -361,3 +361,19 @@ function modalAjoutPhoto() {
   const modalAjoutPhoto = document.getElementById('modalAjoutPhoto');
   modalAjoutPhoto.style.display = 'none';
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Vérifier si le token est présent dans le localStorage
+    const token = localStorage.getItem('token');
+    
+    // Sélectionner l'élément de la bannière
+    const editModeBanner = document.getElementById('editModeBanner');
+
+    // Vérifier si le token est présent et afficher la bannière en conséquence
+    if (token) {
+      editModeBanner.style.display = 'block';
+    } else {
+      editModeBanner.style.display = 'none';
+    }
+  });
