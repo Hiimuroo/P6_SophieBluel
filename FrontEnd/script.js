@@ -379,3 +379,20 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   
+        // Désactivé le bouton valider
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const photoInput = document.getElementById('photoInput');
+    const titleInput = document.getElementById('title');
+    const categorySelect = document.getElementById('category');
+    const validerButton = document.getElementById('validerButton');
+
+    function updateValiderButtonState() {
+        const isFormValid = photoInput.files.length > 0 && titleInput.value.trim() !== '' && categorySelect.value !== '';
+        validerButton.disabled = !isFormValid;
+    }
+
+    photoInput.addEventListener('change', updateValiderButtonState);
+    titleInput.addEventListener('input', updateValiderButtonState);
+    categorySelect.addEventListener('change', updateValiderButtonState);
+});
