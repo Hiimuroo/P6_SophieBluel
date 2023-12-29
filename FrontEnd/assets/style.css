@@ -483,14 +483,14 @@ hr {
   .hidden {
 	display: none;
   }
-#photoPreview {
-	width: 129px;
-	height: 193px;
-	background: url(<path-to-image>), lightgray 50% / cover no-repeat;
-}
 #validerButton {
     display: block;
     margin: 0 auto;
+  }
+  #imagePreview {
+	display: none;
+	max-width: 192px;
+	max-height: 189px;
   }
   #editModeBanner {
 	display: flex;
