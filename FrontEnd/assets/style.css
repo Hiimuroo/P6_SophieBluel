@@ -204,8 +204,8 @@ input[type="submit"]{
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	height: 40px;
-	padding: 15px;
+	height: 55px;
+	padding: 20px;
 }
 footer {
 	background: White;

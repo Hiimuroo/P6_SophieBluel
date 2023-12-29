@@ -1,3 +1,5 @@
+  // Récupération des données du backend pour l'afficher sur le site en récupérant les images, les titres, les catégories)
+
 document.addEventListener('DOMContentLoaded', () => {
   const galleryContainer = document.getElementById('galeries');
   const apiUrl = 'http://localhost:5678/api/works';
@@ -82,11 +84,15 @@ document.addEventListener('DOMContentLoaded', () => {
     updateUIWithData(filteredItems);
   }
 
+  // Ajoute des écouteurs d'événements aux boutons de filtre
+
   document.getElementById('btnTous').addEventListener('click', () => filterItems('all'));
   document.getElementById('btnObjets').addEventListener('click', () => filterItems(1));
   document.getElementById('btnAppartements').addEventListener('click', () => filterItems(2));
   document.getElementById('btnHotelsrestaurants').addEventListener('click', () => filterItems(3));
 });
+
+// Fonction pour mettre à jour la visibilité des boutons de connexion/déconnexion en fonction du token stocké localement
 
 document.addEventListener('DOMContentLoaded', () => {
   const loginButton = document.getElementById('loginBtn');
@@ -106,6 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (loginButton) {
     loginButton.addEventListener('click', submitForm);
   }
+
+// Formulaire de connexion
 
   function submitForm() {
     const email = document.getElementById('email').value;
@@ -138,6 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
   updateButtonVisibility();
 });
 
+// Permet de lancer la connexion sur le bouton "se connecter"
+
 document.addEventListener('DOMContentLoaded', () => {
   const btnModifier = document.getElementById('btnModifier');
   const token = localStorage.getItem('token');
@@ -149,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnModifier) btnModifier.style.display = 'none';
   }
 });
+
 
 function logout() {
   localStorage.removeItem('token');
