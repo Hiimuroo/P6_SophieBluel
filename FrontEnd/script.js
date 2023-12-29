@@ -163,6 +163,9 @@ function logout() {
 
 }
 
+
+// Cache les boutons de filtres lorsqu'on est connecté
+
 document.addEventListener('DOMContentLoaded', () => {
   const token = localStorage.getItem('token');
 
@@ -176,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
 function hideButtons(buttonIds) {
   buttonIds.forEach(buttonId => {
     const button = document.getElementById(buttonId);
@@ -185,15 +189,15 @@ function hideButtons(buttonIds) {
   });
 }
 
+// Ouvrir modale sur bouton "modifier"
+
 function ouvrirModalModifier() {
   const modal = document.getElementById('modalModifier');
   modal.style.display = 'block';
 }
 
-function fermerModalModifier() {
-  const modal = document.getElementById('modalModifier');
-  modal.style.display = 'none';
-}
+
+// Gestionnaire d'événement pour fermer le modal si l'utilisateur clique en dehors de celui-ci
 
 window.onclick = function (event) {
   const modal = document.getElementById('modalModifier');
@@ -203,10 +207,10 @@ window.onclick = function (event) {
 };
 
 
-
-
+// Récupère les photos du backend pour les afficher dans la modale
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Récupère l'élément modal avec l'ID 'modalModifier' et le conteneur de la galerie avec l'ID 'galleryContainer'
   const modal = document.getElementById('modalModifier');
   const galleryContainer = document.getElementById('galleryContainer');
 
@@ -220,21 +224,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  // Fonction pour construire la galerie de photos dans le conteneur spécifié
+
   function construireGaleriePhoto(photos) {
     galleryContainer.innerHTML = '';
 
+      // Pour chaque photo dans le tableau 'photos'
     photos.forEach(photo => {
       const galleryItem = document.createElement('div');
       galleryItem.classList.add('modal-gallery-item');
 
+        // Crée un élément image pour afficher la photo
       const imageElement = document.createElement('img');
       imageElement.src = photo.imageUrl;
       imageElement.alt = `Photo ID: ${photo.id}`;
 
+        // Crée une icône de suppression avec une classe CSS et un gestionnaire de clic
       const deleteIcon = document.createElement('span');
       deleteIcon.innerHTML = '<i class="fas fa-trash"></i>';
       deleteIcon.classList.add('delete');
-      deleteIcon.onclick = () => supprimerImage(photo.id, galleryItem);
+      deleteIcon.onclick = () => supprimerImage(photo.id, galleryItem); // Appelle la fonction de suppression avec l'ID de la photo et l'élément de galerie (fonction en dessous)
 
       galleryItem.appendChild(imageElement);
       galleryItem.appendChild(deleteIcon);
@@ -246,6 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
   chargerPhotos();
 });
 
+// Fonction suppression
 
 function supprimerImage(imageId, galleryItem) {
   const confirmation = confirm('Voulez-vous vraiment supprimer cette image ?');
@@ -271,6 +281,9 @@ function supprimerImage(imageId, galleryItem) {
   }
 }
 
+// Fonction de preview sur la seconde modale pour aperçu de l'image
+
+
 function handleFileSelect(event) {
     const fileInput = event.target;
     const imagePreview = document.getElementById('imagePreview');
@@ -289,6 +302,7 @@ function handleFileSelect(event) {
     }
 }
 
+// Fonction pour envoyer un nouveau "work" sur le site
 
 
 function AjouterImages() {
@@ -322,11 +336,14 @@ function AjouterImages() {
 }
 
 
+// Fonction pour obtenir l'élément input avec l'identifiant 'titleInput'
 
 function getTitreProjet() {
   const titreInput = document.getElementById('titleInput');
   return titreInput;
 }
+
+// Fonction pour afficher le 'modalAjoutPhoto' et masquer le 'modalModifier'
 
 function afficherAjoutPhoto() {
   const modalModifier = document.getElementById('modalModifier');
@@ -336,6 +353,8 @@ function afficherAjoutPhoto() {
   modalAjoutPhoto.style.display = 'block';
 }
 
+// Fonction pour fermer le 'modalAjoutPhoto' et afficher le 'modalModifier'
+
 function fermerAjoutPhoto() {
   const modalModifier = document.getElementById('modalModifier');
   const modalAjoutPhoto = document.getElementById('modalAjoutPhoto');
@@ -343,6 +362,8 @@ function fermerAjoutPhoto() {
   modalAjoutPhoto.style.display = 'none';
   modalModifier.style.display = 'block';
 }
+
+// Fonction pour revenir à la 'modalModifier' depuis 'modalAjoutPhoto'
 
 function retourGalerie() {
   const modalAjoutPhoto = document.getElementById('modalAjoutPhoto');
@@ -352,10 +373,14 @@ function retourGalerie() {
   modalModifier.style.display = 'block';
 }
 
+// Fonction pour fermer le 'modalModifier'
+
 function fermerModalPrincipal() {
   const modalModifier = document.getElementById('modalModifier');
   modalModifier.style.display = 'none';
 }
+
+// Fonction pour masquer le 'modalAjoutPhoto'
 
 function modalAjoutPhoto() {
   const modalAjoutPhoto = document.getElementById('modalAjoutPhoto');

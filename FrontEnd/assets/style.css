@@ -522,3 +522,13 @@ hr {
 	background-color: #A7A7A7;
 	cursor: not-allowed;
   }
+
+  .nav-item {
+	display: inline-block;
+	margin: 0; /* Réinitialisez les marges */
+  }
+  
+  .loginBtn, .logoutBtn {
+	text-decoration: none;
+	color: #000;
+  }
