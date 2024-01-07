@@ -61,7 +61,7 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 70px 0
+	margin: 65px 0
 }
 section {
 	margin: 100px 0
@@ -525,7 +525,7 @@ hr {
 
   .nav-item {
 	display: inline-block;
-	margin: 0; /* Réinitialisez les marges */
+	margin: -5px;
   }
   
   .loginBtn, .logoutBtn {

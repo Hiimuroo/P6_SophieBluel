@@ -2,7 +2,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const galleryContainer = document.getElementById('galeries');
-  const apiUrl = 'http://localhost:5678/api/works';
+  const apiUrl = 'http://localhost:5678/api/works'; 
+
+   // Changement état bouton filtre actif
 
   document.getElementById('btnTous').addEventListener('click', function () {
     changeButtonState(this);
@@ -33,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let allItems = [];
 
+   // Erreurs ou MAJ de l'interface avec les données récupérer
+
   fetch(apiUrl)
     .then(response => {
       if (!response.ok) {
@@ -48,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Erreur lors de la récupération des données:', error);
     });
 
+    // Utilisation de classe CSS pour le style de la galerie
+
   function updateUIWithData(data) {
     galleryContainer.innerHTML = '';
     galleryContainer.classList.add('gallery');
@@ -57,6 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
       galleryContainer.appendChild(galleryItem);
     });
   }
+
+   // Affichage de certains éléments sur la page HTML comme l'image et le titre puis utilisation de l'ID des items pour le filtrage
 
   function createGalleryItem(item, isModal = false) {
     const galleryItem = document.createElement('div');
@@ -84,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateUIWithData(filteredItems);
   }
 
-  // Ajoute des écouteurs d'événements aux boutons de filtre
+  // Permet le fitrage de chaque bouton
 
   document.getElementById('btnTous').addEventListener('click', () => filterItems('all'));
   document.getElementById('btnObjets').addEventListener('click', () => filterItems(1));
@@ -415,7 +423,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   
-        // Désactivé le bouton valider
+        // Désactivé le bouton valider si critère pas complet
 
   document.addEventListener('DOMContentLoaded', function () {
     const photoInput = document.getElementById('photoInput');
