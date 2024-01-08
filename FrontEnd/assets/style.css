@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	overflow-x: hidden;
 }
 a {
     color: inherit;
@@ -525,10 +526,14 @@ hr {
 
   .nav-item {
 	display: inline-block;
-	margin: -5px;
+	margin: 0px;
   }
   
   .loginBtn, .logoutBtn {
 	text-decoration: none;
 	color: #000;
+  }
+  #logoutBtn {
+	display: inline-block;
+	margin-left: -8px;
   }

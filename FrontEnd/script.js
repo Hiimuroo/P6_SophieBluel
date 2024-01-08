@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateButtonVisibility();
 });
 
-// Permet de lancer la connexion sur le bouton "se connecter"
+// Permet d'afficher le bouton "Modifier" pour ouvrir la modale en fonction du token stocké ou non
 
 document.addEventListener('DOMContentLoaded', () => {
   const btnModifier = document.getElementById('btnModifier');
