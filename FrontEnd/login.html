@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +10,8 @@
     <meta name="description" content="">
     <script src="https://kit.fontawesome.com/c724fbc7a5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/style.css">
-    <script src="script.js" defer></script>
+
+	<script src="login.js"></script>
 </head>
 <body>
 <header>
@@ -38,15 +40,22 @@
     
                 <p id="forget"><a href="#">Mot de passe oublié?</a></p>
             </form>
+            <div id="notification" class="notification" style="display: none;">
+                <p id="notificationMessage"></p>
+              </div>
         </div>
     </section>
 </main>
-<footer>
+
+
+<footer id ="loginFooter">
     <nav>
         <ul>
             <li>Mentions Légales</li>
         </ul>
     </nav>
 </footer>
+
+
 </body>
 </html>

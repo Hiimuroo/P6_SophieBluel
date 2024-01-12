@@ -11,6 +11,8 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="script.js"></script>
+	<script src="login.js"></script>
+	<script src="modal.js"></script>
 </head>
 <body>
 	<div id="editModeBanner">
@@ -25,7 +27,7 @@
 			<ul>
 				<li class="nav-item"><a href="login.html" id="loginBtn" class="loginBtn">login</a></li>
 				<li class="nav-item"><a id="logoutBtn" style="display: none;" onclick="logout()" class="logoutBtn">logout</a></li>
-			  </ul>
+			</ul>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -68,11 +70,11 @@
 					<span class="delete-icon" onclick="supprimerImage(1, this)">
 						<i class="fas fa-trash"></i>
 					  </span>
-					  <img src="Backend/images/image.jpg" alt="Description de l'image">
 					</div>
 				</div>
 				<hr>
 				<button id="chargerPageAjoutPhoto" class="login-button" onclick="afficherAjoutPhoto()">Ajouter une photo</button>
+				<div id="confirmationMessage" style="display: none;"></div>
 			  </div>
 			</div>
 		  </div>
@@ -95,21 +97,18 @@
 							<input type="file" accept=".jpg, .jpeg, .png" id="photoInput" style="display: none;" onchange="handleFileSelect(event)">
 							<label for="photoInput" class="photo-button">+ Ajouter photo</label>
 							<p>jpg, png : 4mo max</p>
-						</div>
+							</div>
 							<img id="imagePreview" alt="Aperçu de l'image" />
 						</div>
 					</form>
 				  <h3>Titre</h3>
 				  <input type="text" id="title" required>
-				  <h3>Catégorie</h3>
 				  <div class="form-group">
+					<h3 for="category">Catégorie</h3>
 					<select id="category" class="form-control" required>
-					  <option value="" selected disabled></option>
-					  <option value="1">Objets</option>
-					  <option value="2">Appartements</option>
-					  <option value="3">Hotels & restaurants</option>
+						<option value="" selected disabled>Sélectionner une catégorie</option>
 					</select>
-				  </div>
+				</div>				
 				  <hr>
 				  <button id="validerButton" class="login-button" onclick="AjouterImages()" disabled>Valider</button>
 				</div>
@@ -120,12 +119,8 @@
 
 
 
-		<div id="buttonsContainer">
-			<button id="btnTous" onclick="changeButtonState(this)"><span class="h2">Tous</span></button>
-			<button id="btnObjets" onclick="changeButtonState(this)"><span class="h2">Objets</span></button>
-			<button id="btnAppartements" onclick="changeButtonState(this)"><span class="h2">Appartements</span></button>
-			<button id="btnHotelsrestaurants" onclick="changeButtonState(this)"><span class="h2">Hôtels & restaurants</span></button>
-		  </div>
+		<div id="buttonsContainer" style="display: none;">
+		</div>
 
 
 
